@@ -38,7 +38,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
 }
-
+//cc main.c -lmlx -framework OpenGL -framework AppKit ; ./a.out
 int main()
 {
     t_var   data;
