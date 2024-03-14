@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 21:33:45 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/14 02:22:11 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/14 04:01:20 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void    treat_pixcel(int x, int y, t_fractol *fractal)
         z = sum_complex(square_complex(z), c);
         if ((z.x * z.x) + (z.y * z.y) > 4)
         {
-            color = scale(i, BLACK, WHITE, fractal->iteration);
-            my_mlx_pixel_put(&fractal->img, x, y, color);
+            color = scale(i, BLACK, WHITE ,  fractal->iteration);
+            my_mlx_pixel_put(&fractal->img, x, y, color * 2);
             return ;
         }
         i++;
     }
-    my_mlx_pixel_put(&fractal->img, x, y, WHITE);
+    my_mlx_pixel_put(&fractal->img, x, y, 0xffffe0);
 }
 
 void    render_fractal(t_fractol *fractal)
