@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 21:33:45 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/14 05:43:54 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/14 21:56:25 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void    treat_pixcel(int x, int y, t_fractol *fractal)
     t_complex c;
 
     i = 0;
-    z.x = (scale(x, -2, 2, W) + fractal->shift_x) * fractal->zoom;
-    z.y = (scale(y, 2, -2, H) + fractal->shift_y) * fractal->zoom;
+    z.x = (scale(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
+    z.y = (scale(y, 2, -2, H) * fractal->zoom) + fractal->shift_y;
     c.x = z.x;
     c.y = z.y;
     while (i < fractal->iteration)
