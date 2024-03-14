@@ -1,0 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rendering.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/02 21:33:45 by tkoulal           #+#    #+#             */
+/*   Updated: 2024/03/14 00:04:47 by tkoulal          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "fractol.h"
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
+	*(unsigned int*)dst = color;
+}
+void    treat_pixcel(int x, int y, t_fractol *fractal)
+{
+    int         i;
+    int         color;
+    t_complex z;
+    t_complex c;
+
+    i = 0;
+    z.x = scale(x, -2, 2, W);
+    z.y = scale(y, 2, -2, H);
+    c.x = z.x;
+    c.y = z.y;
+    while (i < fractal->iteration)
+    {
+        if ((z.x * z.x) + (z.y * z.y) > 4)
+        {
+            color = scale(i, BLACK, WHITE, fractal->iteration);
+            my_mlx_pixel_put(&fractal->img, x, y, color);
+            return ;
+        }
+        i++;
+    }
+    my_mlx_pixel_put(&fractal->img, x, y, WHITE);
+}
+
+void    render_fractal(t_fractol *fractal)
+{
+    int x;
+    int y;
+
+    y = -1;
+    while (++y < H)
+    {
+        x = -1;
+        while (++x < W)
+            treat_pixcel(x, y, fractal);
+    }
+    mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img.img, 0, 0);
+
+}
