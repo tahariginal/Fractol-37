@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 03:45:21 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/13 23:59:34 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/14 02:11:44 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,7 @@ void    render_fractal(t_fractol *fractal);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 //math_fcts
 double scale(double unscaled_num, double new_min, double new_max, double old_max);
+t_complex   sum_complex(t_complex z, t_complex c);
+t_complex   square_complex(t_complex z);
+
 #endif
