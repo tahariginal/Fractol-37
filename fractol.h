@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 03:45:21 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/14 04:14:47 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/14 04:51:14 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ typedef struct s_fractol
     void    *win;
 	char	*name;
 	int		iteration;
+	double	shift_x;
+	double	shift_y;
     t_data  img;
 }   t_fractol;
 
