@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 04:08:40 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/14 05:53:31 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/14 06:08:32 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,15 @@ int key_handel(int keysem, t_fractol *fractol)
     if (keysem == XK_Escape)
         close_win(fractol);
     else if (keysem == XK_Up)
-        fractol->shift_y += .25;
+        fractol->shift_y += (.25 * fractol->zoom);
     else if (keysem == XK_Down)
-        fractol->shift_y -= .25;
+        fractol->shift_y -= (.25 * fractol->zoom);
     else if (keysem == XK_Left)
-        fractol->shift_x -= .25;
+        fractol->shift_x -= (.25 * fractol->zoom);
     else if (keysem == XK_Right)
-        fractol->shift_x += .25;
+        fractol->shift_x += (.25 * fractol->zoom);
     else if (keysem == XK_u)
-    {
-        puts("iii");
         fractol->iteration += 1;
-    }
     else if (keysem == XK_d)
         fractol->iteration -= 1;
     render_fractal(fractol);
@@ -47,13 +44,9 @@ int key_handel(int keysem, t_fractol *fractol)
 int mousse_handel(int button, int x, int y, t_fractol *fractol)
 {
     if (button == Button5)
-    {
-        fractol->zoom += .25;
-    }
+        fractol->zoom += 0.12;
     else if (button == Button4)
-    {
-        fractol->zoom -= .25;
-    }
+        fractol->zoom -= .12;
     render_fractal(fractol);
     return (1);
 }
