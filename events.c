@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 04:08:40 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/14 21:58:10 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/16 22:23:56 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int key_handel(int keysem, t_fractol *fractol)
 
 int mousse_handel(int button, int x, int y, t_fractol *fractol)
 {
+    printf("Mouse Cordonates: x=%d - y=%d\n", x, y);
     if (button == Button5)
         fractol->zoom *= 1.05;
     else if (button == Button4)
