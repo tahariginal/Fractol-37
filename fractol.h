@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 03:45:21 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/16 22:37:49 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/17 03:59:21 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@
 
 typedef unsigned char t_byte;
 
-typedef struct s_complex
+typedef struct s_point
 {
 	double	x;	// real
 	double	y;	// i
-}	t_complex;
+}	t_point;
 
 
 typedef struct	s_data
@@ -68,8 +68,8 @@ void    render_fractal(t_fractol *fractal);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 //math_fcts
 double scale(double unscaled_num, double new_min, double new_max, double old_max);
-t_complex   sum_complex(t_complex z, t_complex c);
-t_complex   square_complex(t_complex z);
+t_point   sum_point(t_point z, t_point c);
+t_point   square_point(t_point z);
 //events_hooks
 int close_win(t_fractol *fractol);
 int key_handel(int keysem, t_fractol *fractol);

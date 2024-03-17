@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:28:58 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/14 06:09:28 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/17 04:05:25 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    init_data(t_fractol *fractol)
 {
-    fractol->iteration = 18;
+    fractol->iteration = 141;
     fractol->shift_x = 0.0;
     fractol->shift_y = 0.0;
     fractol-> zoom = 1;

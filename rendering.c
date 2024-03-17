@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 21:33:45 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/14 21:56:25 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/17 04:03:01 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void    treat_pixcel(int x, int y, t_fractol *fractal)
 {
     int         i;
     int         color;
-    t_complex z;
-    t_complex c;
+    t_point z;
+    t_point c;
 
     i = 0;
     z.x = (scale(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
@@ -34,7 +34,7 @@ void    treat_pixcel(int x, int y, t_fractol *fractal)
     while (i < fractal->iteration)
     {
         //z = z^2 + c
-        z = sum_complex(square_complex(z), c);
+        z = sum_point(square_point(z), c);
         if ((z.x * z.x) + (z.y * z.y) > 4)
         {
             color = scale(i, BLACK, WHITE ,  fractal->iteration);
