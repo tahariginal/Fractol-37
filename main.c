@@ -6,14 +6,13 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:13:33 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/17 17:22:20 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/17 22:00:28 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //cc main.c -lmlx -framework OpenGL -framework AppKit ; ./a.out
 
 #include "fractol.h"
-
 
 int main(int ac, char **av)
 {
@@ -22,7 +21,12 @@ int main(int ac, char **av)
     if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)) || (ac == 4 && !ft_strncmp(av[1], "julia", 5)))
     {
         fractal.name = av[1];
-        init_fractal(&fractal, av);
+        if ((ac == 4 && !ft_strncmp(av[1], "julia", 5)))
+        {
+            fractal.julia_x = atodbl(av[2]);
+            fractal.julia_y = atodbl(av[3]);
+        }
+        init_fractal(&fractal);
         render_fractal(&fractal);
         mlx_loop(fractal.mlx);
     }
