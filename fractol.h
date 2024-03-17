@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 03:45:21 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/17 03:59:21 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/17 17:22:33 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,15 @@ typedef struct s_fractol
 	double		zoom;
 	double	shift_x;
 	double	shift_y;
+	double	julia_x;
+	double	julia_y;
     t_data  img;
 }   t_fractol;
 
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
 void    tuto_msg(char *s);
 //init_fractal_strct
-void    init_fractal(t_fractol *fractal);
+void    init_fractal(t_fractol *fractal, char **av);
 //rendering
 void    render_fractal(t_fractol *fractal);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
