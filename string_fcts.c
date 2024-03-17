@@ -6,12 +6,36 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:36:57 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/17 21:56:45 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/17 23:38:23 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+void	is_s_valid(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i + 1] == '.' && !s[i + 2])
+		{
+			tuto_msg("SYNTAX ERROR !");
+			exit(1);
+		}
+	i++;
+	}
+	while (*s)
+	{
+		if (!((*s >= '0' && *s <= '9') || *s == '.'))
+		{
+			tuto_msg("SYNTAX ERROR !");
+			exit(1);
+		}
+		s++;
+	}
+}
 
 double	atodbl(char *s)
 {
@@ -20,6 +44,7 @@ double	atodbl(char *s)
 	double	pow;
 	int		sign;
 
+	is_s_valid(s);
 	integer_part = 0;
 	fractional_part = 0;
 	sign = +1;
