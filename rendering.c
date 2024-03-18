@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 21:33:45 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/17 21:59:23 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/18 01:37:04 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void    init_c(t_point *c, t_point *z, t_fractol *fractal)
+void    choose_fractal(t_point *c, t_point *z, t_fractol *fractal)
 {
     if (fractal->name[0] == 'j')
     {
@@ -31,6 +31,10 @@ void    init_c(t_point *c, t_point *z, t_fractol *fractal)
     {
         c->x = z->x;
         c->y = z->y;
+    }
+    else if (fractal->name[0] == 'b')
+    {
+        puts("lhabs");
     }
 }
 
@@ -44,7 +48,7 @@ void    treat_pixcel(int x, int y, t_fractol *fractal)
     i = 0;
     z.x = (scale(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
     z.y = (scale(y, 2, -2, H) * fractal->zoom) + fractal->shift_y;
-    init_c(&c, &z, fractal);
+    choose_fractal(&c, &z, fractal);
     while (i < fractal->iteration)
     {
         //z = z^2 + c
