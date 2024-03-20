@@ -6,11 +6,19 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 21:54:49 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/17 03:59:33 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/20 04:26:03 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_len + x * (data->bpp / 8));
+	*(unsigned int*)dst = color;
+}
 
 double scale(double unscaled_num, double new_min, double new_max, double old_max)
 {
@@ -34,4 +42,12 @@ t_point   square_point(t_point z)
     result.x = (z.x * z.x) - (z.y * z.y);
     result.y = 2 * z.x * z.y;
     return (result);
+}
+
+void f_abs(t_point *z)
+{
+    if (z->x < 0)
+        z->x *= -1;
+    if (z->y < 0)
+        z->y *= -1;
 }
