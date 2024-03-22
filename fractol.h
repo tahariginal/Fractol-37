@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 #include "mini/mlx.h"
 
 #define H 500
@@ -56,10 +57,9 @@ typedef struct s_point
 	double	x;	// real
 	double	y;	// i
 }	t_point;
-t_point    choose_fractalv2(t_point z, t_point c, t_fractol fractal);
 //strings_fcts
 double	atodbl(char *s);
-int     ft_strncmp(const char *s1, const char *s2, size_t n);
+int	ft_strncmp(char *s1, char *s2, size_t n);
 //init_fractal_strct
 void    init_fractal(t_fractol *fractal);
 //rendering

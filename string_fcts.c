@@ -82,6 +82,7 @@ double	atodbl(char *s)
 	double	fractional_part;
 	double	pow;
 	int		sign;
+
 	is_s_valid(s);
 	integer_part = 0;
 	fractional_part = 0;
@@ -104,14 +105,16 @@ double	atodbl(char *s)
 	return ((integer_part + fractional_part) * sign);
 }
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n && s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	if (i == n)
-		return (0);
-	return ((t_byte)s1[i] - (t_byte)s2[i]);
+	//t a h a
+	//t a h a
+//          l 
+	while (n && *s1 == *s2)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	return (*s1 - *s2);
 }

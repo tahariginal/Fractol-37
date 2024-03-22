@@ -11,7 +11,7 @@ NAME = fractol
 
 CC	 = gcc
 
-CFLAGS	= -Ofast -Imlx -fsanitize=address -g3
+CFLAGS	= -O3 -Imlx -g3
 
 RM	= rm -rf
 

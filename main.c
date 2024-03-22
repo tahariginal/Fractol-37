@@ -14,11 +14,17 @@
 
 #include "fractol.h"
 
+int arg_is_valid(int ac, char **av)
+{
+    return ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)) ||
+     (ac == 4 && !ft_strncmp(av[1], "julia", 5)) || (ac == 2 && !ft_strncmp(av[1], "burning", 11)));
+}
+
 int main(int ac, char **av)
 {
     t_fractol   fractal;
 
-    if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)) || (ac == 4 && !ft_strncmp(av[1], "julia", 5)) || (ac == 2 && !ft_strncmp(av[1], "burning", 11)))
+    if (arg_is_valid(ac, av))
     {
         fractal.name = av[1];
         if ((ac == 4 && !ft_strncmp(av[1], "julia", 5)))

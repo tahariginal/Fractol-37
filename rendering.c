@@ -12,7 +12,7 @@
 
 #include "fractol.h"
 
-void    choose_fractal(t_point *c, t_point *z, t_fractol *fractal)
+void    choose_fractal(t_point *c, t_point z, t_fractol *fractal)
 {
     if (fractal->name[0] == 'j')
     {
@@ -21,8 +21,8 @@ void    choose_fractal(t_point *c, t_point *z, t_fractol *fractal)
     }
     else if (fractal->name[0] == 'm' || fractal->name[0] == 'b')
     {
-        c->x = z->x;
-        c->y = z->y;
+        c->x = z.x;
+        c->y = z.y;
     }
 }
 
@@ -35,7 +35,7 @@ void    paint_fractol(int x, int y, t_fractol *fractal)
     i = 0;
     z.x = (scale(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
     z.y = (scale(y, 2, -2, H) * fractal->zoom) + fractal->shift_y;
-    choose_fractal(&c, &z, fractal);
+    choose_fractal(&c, z, fractal);
     while (i < fractal->iteration)
     {
         //z = z^2 + c
@@ -59,7 +59,7 @@ void    paint_myFractol(int x, int y, t_fractol *fractal)
     i = 0;
     z.x = (scale(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
     z.y = (scale(y, 2, -2, H) * fractal->zoom) + fractal->shift_y;
-    choose_fractal(&c, &z, fractal);
+    choose_fractal(&c, z, fractal);
     while (i < fractal->iteration)
     {
         //z = z^3 + c
