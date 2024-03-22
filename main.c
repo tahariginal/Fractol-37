@@ -32,7 +32,7 @@ int main(int ac, char **av)
     }
     else
     {
-        tuto_msg("Please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n");
+        puts("Please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n");
         exit(0);
     }
 }

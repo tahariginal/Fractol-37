@@ -35,7 +35,17 @@ t_point   sum_point(t_point z, t_point c)
     result.y = z.y + c.y;
     return (result);
 }
-t_point   square_point(t_point z)
+
+t_point     cube_point(t_point z)
+{
+    t_point result;
+
+    result.x = (z.x * z.x * z.x) - (3 * z.x *(z.y * z.y));
+    result.y = (3 * (z.x * z.x) * z.y) - (z.y * z.y * z.y);
+    return (result);
+}
+
+t_point     square_point(t_point z)
 {
     t_point result;
 

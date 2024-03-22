@@ -62,9 +62,9 @@ void    paint_myFractol(int x, int y, t_fractol *fractal)
     choose_fractal(&c, &z, fractal);
     while (i < fractal->iteration)
     {
-        //z = z^2 + c
+        //z = z^3 + c
         f_abs(&z);       
-        z = sum_point(square_point(z), c);
+        z = sum_point(cube_point(z), c);
         if ((z.x * z.x) + (z.y * z.y) > 4)
         {
             fractal->color = scale(i, BLACK, WHITE, fractal->iteration);

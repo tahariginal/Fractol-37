@@ -18,7 +18,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <mlx.h>
+#include "mini/mlx.h"
 
 #define H 500
 #define W 500
@@ -60,7 +60,6 @@ t_point    choose_fractalv2(t_point z, t_point c, t_fractol fractal);
 //strings_fcts
 double	atodbl(char *s);
 int     ft_strncmp(const char *s1, const char *s2, size_t n);
-void    tuto_msg(char *s);
 //init_fractal_strct
 void    init_fractal(t_fractol *fractal);
 //rendering
@@ -71,6 +70,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 double scale(double unscaled_num, double new_min, double new_max, double old_max);
 t_point   sum_point(t_point z, t_point c);
 t_point   square_point(t_point z);
+t_point     cube_point(t_point z);
 void f_abs(t_point *z);
 //events_hooks
 int close_win(t_fractol *fractol);

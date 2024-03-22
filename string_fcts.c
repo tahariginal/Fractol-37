@@ -11,17 +11,56 @@
 /* ************************************************************************** */
 
 #include "fractol.h"
+#include <unistd.h>
+//0.3.
+int	count_dot(char *s)
+{
+	int i;
+	int c;
+
+	i = 0;
+	c = 0;
+	while (s[i])
+	{
+		if (s[i] == '.')
+			c++;
+	i++;
+	}
+	return (c);
+}
+
+int	ft_isdigit(int c)
+{
+	return (c >= 48 && c <= 57);
+}
 
 void	is_s_valid(char *s)
 {
 	int i;
+	int check_point;
 
+	i = 0;
+	check_point = count_dot(s);
+	if (check_point > 1)
+	{
+		puts("syntax Error!");
+		exit(1);
+	}
+	while (s[i])
+	{
+		if (s[i] == '.' && !ft_isdigit(s[i + 1]))
+		{
+			puts("SYNTAX ERROR !");
+			exit(1);
+		}
+		i++;
+	}
 	i = 0;
 	while (s[i])
 	{
 		if (s[i + 1] == '.' && !s[i + 2])
 		{
-			tuto_msg("SYNTAX ERROR !");
+			puts("SYNTAX ERROR !");
 			exit(1);
 		}
 	i++;
@@ -30,7 +69,7 @@ void	is_s_valid(char *s)
 	{
 		if (!((*s >= '0' && *s <= '9') || *s == '.' || *s == '-' || *s == '+'))
 		{
-			tuto_msg("SYNTAX ERROR !");
+			puts("SYNTAX ERROR !");
 			exit(1);
 		}
 		s++;
@@ -43,7 +82,6 @@ double	atodbl(char *s)
 	double	fractional_part;
 	double	pow;
 	int		sign;
-
 	is_s_valid(s);
 	integer_part = 0;
 	fractional_part = 0;
@@ -76,9 +114,4 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	if (i == n)
 		return (0);
 	return ((t_byte)s1[i] - (t_byte)s2[i]);
-}
-void    tuto_msg(char *s)
-{
-    while (*s)
-        write(2, s++, 1);
 }

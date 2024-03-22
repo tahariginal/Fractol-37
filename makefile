@@ -9,17 +9,18 @@ OBJS = $(SRCS:.c=.o)
 
 NAME = fractol
 
-CC	 = cc
+CC	 = gcc
 
-CFLAGS	= -Ofast -Wall -Wextra -Werror -fsanitize=address -g3
+CFLAGS	= -Ofast -Imlx -fsanitize=address -g3
 
 RM	= rm -rf
 
 all: $(NAME)
 $(NAME):$(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/local/include -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) -L. -lmlx -lX11 -lXext -lm -o $(NAME)
 clean:
 	$(RM) $(OBJS)
 fclean: clean
 	$(RM) $(NAME)
 re: fclean all
+#$(CC) $(CFLAGS) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/local/include -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
