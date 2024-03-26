@@ -28,7 +28,7 @@ int main(int ac, char **av)
     if (arg_is_valid(ac, av))
     {
         fractal.name = av[1];
-        if ((ac == 4 && !ft_strncmp(av[1], "julia", 5)))
+        if (ac == 4)
         {
             fractal.julia_x = atodbl(av[2]);
             fractal.julia_y = atodbl(av[3]);

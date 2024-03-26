@@ -14,7 +14,7 @@
 
 void    init_data(t_fractol *fractol)
 {
-    fractol->iteration = 3;
+    fractol->iteration = 22;
     fractol->shift_x = 0.0;
     fractol->shift_y = 0.0;
     fractol-> zoom = 1;

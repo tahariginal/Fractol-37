@@ -40,7 +40,7 @@ void    paint_fractol(int x, int y, t_fractol *fractal)
     {
         //z = z^2 + c
         z = sum_point(square_point(z), c);
-        if ((z.x * z.x) + (z.y * z.y) > 4)
+        if ((z.x * z.x) + (z.y * z.y) > 3)
         {
             fractal->color = scale(i, BLACK, WHITE, fractal->iteration);
             my_mlx_pixel_put(&fractal->img, x, y, fractal->color);
@@ -63,7 +63,6 @@ void    paint_myFractol(int x, int y, t_fractol *fractal)
     while (i < fractal->iteration)
     {
         //z = z^3 + c
-        f_abs(&z);       
         z = sum_point(cube_point(z), c);
         if ((z.x * z.x) + (z.y * z.y) > 4)
         {
