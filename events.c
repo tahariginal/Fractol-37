@@ -35,7 +35,11 @@ int	key_handel(int keysem, t_fractol *fractol)
 	else if (keysem == XK_u)
 		fractol->iteration += 1;
 	else if (keysem == XK_d)
+    {
 		fractol->iteration -= 1;
+        if (fractol->iteration < 0)
+		fractol->iteration = 0;
+    }
 	render_fractal(fractol);
 	return (1);
 }

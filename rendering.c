@@ -12,10 +12,11 @@
 
 #include "fractol.h"
 
-void	choose_fractal(t_point *c, t_point z, t_fractol *fractal)
+void	initialize_c(t_point *c, t_point z, t_fractol *fractal)
 {
 	if (fractal->name[0] == 'j')
 	{
+        //c constant with every iter
 		c->x = fractal->julia_x;
 		c->y = fractal->julia_y;
 	}
@@ -24,6 +25,14 @@ void	choose_fractal(t_point *c, t_point z, t_fractol *fractal)
 		c->x = z.x;
 		c->y = z.y;
 	}
+}
+
+t_point    choose_eq(t_point z, t_point c, t_fractol *fractal)
+{
+     if (fractal->name[0] == 'm' || fractal->name[0] == 'j')
+        return (sum_point(square_point(z), c));
+    else if (fractal->name[0] == 'b')
+	    return (sum_point(cube_point(z), c));
 }
 
 void	painter(int x, int y, t_fractol *fractal)
@@ -35,14 +44,11 @@ void	painter(int x, int y, t_fractol *fractal)
 	i = 0;
 	z.x = (scale(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
 	z.y = (scale(y, 2, -2, H) * fractal->zoom) + fractal->shift_y;
-	choose_fractal(&c, z, fractal);
+	initialize_c(&c, z, fractal);
+    //     0 <        5
 	while (i < fractal->iteration)
 	{
-		//z = z^2 + c
-        if (fractal->name[0] == 'm' || fractal->name[0] == 'j')
-		    z = sum_point(square_point(z), c);
-        else if (fractal->name[0] == 'b')
-		    z = sum_point(cube_point(z), c);
+        z = choose_eq(z, c, fractal);
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
 			fractal->color = scale(i, BLACK, WHITE, fractal->iteration);
@@ -64,9 +70,7 @@ void	render_fractal(t_fractol *fractal)
 	{
 		x = -1;
 		while (++x < W)
-		{
 			painter(x, y, fractal);
-		}
 	}
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img.img, 0, 0);
 }
