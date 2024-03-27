@@ -38,7 +38,7 @@ int	key_handel(int keysem, t_fractol *fractol)
     {
 		fractol->iteration -= 1;
         if (fractol->iteration < 0)
-		fractol->iteration = 0;
+		    fractol->iteration = 0;
     }
 	render_fractal(fractol);
 	return (1);
