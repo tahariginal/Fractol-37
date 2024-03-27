@@ -35,7 +35,7 @@ int	ft_isdigit(int c)
 	return (c >= 48 && c <= 57);
 }
 
-void	is_s_valid(char *s)
+void	is_s_valid_V2(char *s)
 {
 	int	i;
 	int	check_point;
@@ -56,7 +56,14 @@ void	is_s_valid(char *s)
 		}
 		i++;
 	}
+}
+
+void	is_s_valid(char *s)
+{
+	int	i;
+
 	i = 0;
+	is_s_valid_V2(s);
 	while (s[i])
 	{
 		if (s[i + 1] == '.' && !s[i + 2])
