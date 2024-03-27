@@ -12,11 +12,12 @@
 
 #include "fractol.h"
 #include <unistd.h>
+
 //0.3.
 int	count_dot(char *s)
 {
-	int i;
-	int c;
+	int	i;
+	int	c;
 
 	i = 0;
 	c = 0;
@@ -24,7 +25,7 @@ int	count_dot(char *s)
 	{
 		if (s[i] == '.')
 			c++;
-	i++;
+		i++;
 	}
 	return (c);
 }
@@ -36,8 +37,8 @@ int	ft_isdigit(int c)
 
 void	is_s_valid(char *s)
 {
-	int i;
-	int check_point;
+	int	i;
+	int	check_point;
 
 	i = 0;
 	check_point = count_dot(s);
@@ -63,7 +64,7 @@ void	is_s_valid(char *s)
 			puts("SYNTAX ERROR !");
 			exit(1);
 		}
-	i++;
+		i++;
 	}
 	while (*s)
 	{
@@ -106,7 +107,7 @@ double	atodbl(char *s)
 }
 
 int	ft_strncmp(char *s1, char *s2, size_t n)
-{ 
+{
 	while (n && *s1 == *s2)
 	{
 		s1++;
