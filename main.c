@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:13:33 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/18 01:34:38 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/27 10:43:29 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 
 int	arg_is_valid(int ac, char **av)
 {
-	return ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)) ||
-			(ac == 4 && !ft_strncmp(av[1], "julia", 5)) ||
-			(ac == 2 && !ft_strncmp(av[1], "burning", 7)));
+	return ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10))
+		|| (ac == 4 && !ft_strncmp(av[1], "julia", 5))
+		|| (ac == 2 && !ft_strncmp(av[1], "burning", 7)));
 }
 
 int	main(int ac, char **av)
@@ -39,7 +39,10 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		puts("Please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n\t\"./fractol burning\"");
+		msg("Please enter one from this three commonde: \n\t");
+		msg("./fractol mandelbrot");
+		msg("./fractol julia <value_1> <value_2>");
+		msg("./fractol burning");
 		exit(0);
 	}
 }

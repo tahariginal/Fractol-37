@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 21:33:45 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/20 05:17:29 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/27 10:40:25 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	initialize_c(t_point *c, t_point z, t_fractol *fractal)
 {
 	if (fractal->name[0] == 'j')
 	{
-        //c constant with every iter
 		c->x = fractal->julia_x;
 		c->y = fractal->julia_y;
 	}
@@ -27,12 +26,13 @@ void	initialize_c(t_point *c, t_point z, t_fractol *fractal)
 	}
 }
 
-t_point    choose_eq(t_point z, t_point c, t_fractol *fractal)
+t_point	choose_eq(t_point z, t_point c, t_fractol *fractal)
 {
-     if (fractal->name[0] == 'm' || fractal->name[0] == 'j')
-        return (sum_point(square_point(z), c));
-    else if (fractal->name[0] == 'b')
-	    return (sum_point(cube_point(z), c));
+	if (fractal->name[0] == 'm' || fractal->name[0] == 'j')
+		return (sum_point(square_point(z), c));
+	else if (fractal->name[0] == 'b')
+		return (sum_point(cube_point(z), c));
+	return (z);
 }
 
 void	painter(int x, int y, t_fractol *fractal)
@@ -45,10 +45,9 @@ void	painter(int x, int y, t_fractol *fractal)
 	z.x = (scale(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
 	z.y = (scale(y, 2, -2, H) * fractal->zoom) + fractal->shift_y;
 	initialize_c(&c, z, fractal);
-    //     1 <        5
 	while (i < fractal->iteration)
 	{
-        z = choose_eq(z, c, fractal);
+		z = choose_eq(z, c, fractal);
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
 			fractal->color = scale(i, BLACK, WHITE, fractal->iteration);

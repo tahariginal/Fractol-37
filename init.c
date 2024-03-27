@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 19:28:58 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/18 23:28:11 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/27 10:38:36 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	init_data(t_fractol *fractol)
 void	init_event(t_fractol *fractol)
 {
 	mlx_hook(fractol->win, KeyPress, KeyPressMask, key_handel, fractol);
-	mlx_hook(fractol->win, ButtonPress, ButtonPressMask, mousse_handel, fractol);
-	mlx_hook(fractol->win, DestroyNotify, StructureNotifyMask, close_win, fractol);
+	mlx_hook(fractol->win, ButtonPress, ButtonPressMask, mousse_handel,
+		fractol);
+	mlx_hook(fractol->win, DestroyNotify, StructureNotifyMask, close_win,
+		fractol);
 }
 
 void	init_fractal(t_fractol *fractal)

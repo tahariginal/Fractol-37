@@ -6,14 +6,14 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 03:45:21 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/20 00:55:24 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/27 10:35:57 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mini/mlx.h"
+# include "mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <stdio.h>
@@ -54,12 +54,14 @@ typedef struct s_fractol
 }						t_fractol;
 typedef struct s_point
 {
-	double x; // real
-	double y; // i
+	double	x; // real
+	double	y; // i
 }						t_point;
 //strings_fcts
+void					msg(char *s);
 double					atodbl(char *s);
 int						ft_strncmp(char *s1, char *s2, size_t n);
+void					is_s_valid(char *s);
 //init_fractal_strct
 void					init_fractal(t_fractol *fractal);
 //rendering

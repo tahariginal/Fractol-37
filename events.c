@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 04:08:40 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/19 20:31:03 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/27 10:12:11 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	close_win(t_fractol *fractol)
 	free(fractol->mlx);
 	exit(1);
 }
+
 int	key_handel(int keysem, t_fractol *fractol)
 {
 	if (keysem == XK_Escape)
@@ -35,17 +36,19 @@ int	key_handel(int keysem, t_fractol *fractol)
 	else if (keysem == XK_u)
 		fractol->iteration += 1;
 	else if (keysem == XK_d)
-    {
+	{
 		fractol->iteration -= 1;
-        if (fractol->iteration < 0)
-		    fractol->iteration = 0;
-    }
+		if (fractol->iteration < 0)
+			fractol->iteration = 0;
+	}
 	render_fractal(fractol);
 	return (1);
 }
 
 int	mousse_handel(int button, int x, int y, t_fractol *fractol)
 {
+	(void)x;
+	(void)y;
 	if (button == Button5)
 		fractol->zoom *= 1.05;
 	else if (button == Button4)

@@ -1,88 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   string_fcts.c                                      :+:      :+:    :+:   */
+/*   helper_fct01.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/02 19:36:57 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/20 02:24:59 by tkoulal          ###   ########.fr       */
+/*   Created: 2024/03/27 09:57:32 by tkoulal           #+#    #+#             */
+/*   Updated: 2024/03/27 10:25:29 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <unistd.h>
-
-//0.3.
-int	count_dot(char *s)
-{
-	int	i;
-	int	c;
-
-	i = 0;
-	c = 0;
-	while (s[i])
-	{
-		if (s[i] == '.')
-			c++;
-		i++;
-	}
-	return (c);
-}
-
-int	ft_isdigit(int c)
-{
-	return (c >= 48 && c <= 57);
-}
-
-void	is_s_valid_V2(char *s)
-{
-	int	i;
-	int	check_point;
-
-	i = 0;
-	check_point = count_dot(s);
-	if (check_point > 1)
-	{
-		puts("syntax Error!");
-		exit(1);
-	}
-	while (s[i])
-	{
-		if (s[i] == '.' && !ft_isdigit(s[i + 1]))
-		{
-			puts("SYNTAX ERROR !");
-			exit(1);
-		}
-		i++;
-	}
-}
-
-void	is_s_valid(char *s)
-{
-	int	i;
-
-	i = 0;
-	is_s_valid_V2(s);
-	while (s[i])
-	{
-		if (s[i + 1] == '.' && !s[i + 2])
-		{
-			puts("SYNTAX ERROR !");
-			exit(1);
-		}
-		i++;
-	}
-	while (*s)
-	{
-		if (!((*s >= '0' && *s <= '9') || *s == '.' || *s == '-' || *s == '+'))
-		{
-			puts("SYNTAX ERROR !");
-			exit(1);
-		}
-		s++;
-	}
-}
 
 double	atodbl(char *s)
 {
@@ -122,4 +50,11 @@ int	ft_strncmp(char *s1, char *s2, size_t n)
 		n--;
 	}
 	return (*s1 - *s2);
+}
+
+void	msg(char *s)
+{
+	while (*s)
+		write(1, s++, 1);
+	write(1, "\n", 1);
 }
