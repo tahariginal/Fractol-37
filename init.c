@@ -14,7 +14,7 @@
 
 void	init_data(t_fractol *fractol)
 {
-	fractol->iteration = 22;
+	fractol->iteration = 5;
 	fractol->shift_x = 0.0;
 	fractol->shift_y = 0.0;
 	fractol->zoom = 1;
@@ -23,10 +23,8 @@ void	init_data(t_fractol *fractol)
 void	init_event(t_fractol *fractol)
 {
 	mlx_hook(fractol->win, KeyPress, KeyPressMask, key_handel, fractol);
-	mlx_hook(fractol->win, ButtonPress, ButtonPressMask, mousse_handel,
-			fractol);
-	mlx_hook(fractol->win, DestroyNotify, StructureNotifyMask, close_win,
-			fractol);
+	mlx_hook(fractol->win, ButtonPress, ButtonPressMask, mousse_handel, fractol);
+	mlx_hook(fractol->win, DestroyNotify, StructureNotifyMask, close_win, fractol);
 }
 
 void	init_fractal(t_fractol *fractal)

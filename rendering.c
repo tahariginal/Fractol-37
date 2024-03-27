@@ -41,11 +41,11 @@ void	painter(int x, int y, t_fractol *fractal)
 	t_point	z;
 	t_point	c;
 
-	i = 0;
+	i = 1;
 	z.x = (scale(x, -2, 2, W) * fractal->zoom) + fractal->shift_x;
 	z.y = (scale(y, 2, -2, H) * fractal->zoom) + fractal->shift_y;
 	initialize_c(&c, z, fractal);
-    //     0 <        5
+    //     1 <        5
 	while (i < fractal->iteration)
 	{
         z = choose_eq(z, c, fractal);

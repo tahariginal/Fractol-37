@@ -46,7 +46,6 @@ int	key_handel(int keysem, t_fractol *fractol)
 
 int	mousse_handel(int button, int x, int y, t_fractol *fractol)
 {
-	printf("Mouse Cordonates: x=%d - y=%d\n", x, y);
 	if (button == Button5)
 		fractol->zoom *= 1.05;
 	else if (button == Button4)
