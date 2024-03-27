@@ -6,23 +6,51 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:57:32 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/27 10:25:29 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/27 11:00:41 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+int	count_sign(char *s)
+{
+	int	i;
+	int	c;
+
+	i = 0;
+	c = 0;
+	while (s[i])
+	{
+		if (s[i] == '-')
+			c++;
+		i++;
+	}
+	return (c);
+}
+
+void	is_s_valid02(char *s)
+{
+	int	check_sign;
+
+	check_sign = count_sign(s);
+	if (check_sign > 1)
+	{
+		msg("syntax Error!");
+		exit(1);
+	}
+}
+
 double	atodbl(char *s)
 {
-	long	integer_part;
-	double	fractional_part;
+	long	firstpart;
+	double	secondepart;
 	double	pow;
 	int		sign;
 
 	is_s_valid(s);
-	integer_part = 0;
-	fractional_part = 0;
-	sign = +1;
+	firstpart = 0;
+	secondepart = 0;
+	sign = 1;
 	pow = 1;
 	while ((*s >= 9 && *s <= 13) || 32 == *s)
 		++s;
@@ -30,15 +58,15 @@ double	atodbl(char *s)
 		if ('-' == *s++)
 			sign = -sign;
 	while (*s != '.' && *s)
-		integer_part = (integer_part * 10) + (*s++ - 48);
+		firstpart = (firstpart * 10) + (*s++ - 48);
 	if ('.' == *s)
 		++s;
 	while (*s)
 	{
 		pow /= 10;
-		fractional_part = fractional_part + (*s++ - 48) * pow;
+		secondepart = secondepart + (*s++ - 48) * pow;
 	}
-	return ((integer_part + fractional_part) * sign);
+	return ((firstpart + secondepart) * sign);
 }
 
 int	ft_strncmp(char *s1, char *s2, size_t n)

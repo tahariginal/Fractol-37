@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 03:45:21 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/27 10:35:57 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/03/27 10:52:15 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void					msg(char *s);
 double					atodbl(char *s);
 int						ft_strncmp(char *s1, char *s2, size_t n);
 void					is_s_valid(char *s);
+void					is_s_valid02(char *s);
 //init_fractal_strct
 void					init_fractal(t_fractol *fractal);
 //rendering
