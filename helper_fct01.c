@@ -6,7 +6,7 @@
 /*   By: tkoulal <tkoulal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 09:57:32 by tkoulal           #+#    #+#             */
-/*   Updated: 2024/03/27 11:00:41 by tkoulal          ###   ########.fr       */
+/*   Updated: 2024/12/12 05:46:27 by tkoulal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@ void	is_s_valid02(char *s)
 	if (check_sign > 1)
 	{
 		msg("syntax Error!");
-		exit(1);
+		exit(1);	
 	}
 }
 
 double	atodbl(char *s)
 {
+	if (!*s)
+		print_msg();
 	long	firstpart;
 	double	secondepart;
 	double	pow;
