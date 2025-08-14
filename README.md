@@ -1,5 +1,9 @@
 #             Fractol
 <img width="492" height="527" alt="Image" src="https://github.com/user-attachments/assets/a7473dcf-097c-4a12-9bf0-db2eed8f50fc" />
+
+
+
+
 Fractol is a creative and interactive fractal explorer written in C, designed to render mesmerizing mathematical sets such as Mandelbrot, Julia, and more. With real-time controls and beautiful color palettes, Fractol lets you dive into the world of fractals and discover their infinite complexity.
 
 ## Features
