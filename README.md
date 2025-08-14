@@ -28,9 +28,7 @@ Example:
 
 ## Controls
 - **Arrow Keys / Mouse Drag:** Pan the view
-- **Scroll / +/-:** Zoom in and out
-- **C:** Change color palette
-- **R:** Reset view
+- **Scroll / u/d:** Zoom in and out
 - **ESC:** Exit
 
 ## Dependencies
