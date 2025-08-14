@@ -1,5 +1,7 @@
-#             Fractol
+<h1 align="center"><b>Fractol</b></h1>
+
 <img width="492" height="527" alt="Image" src="https://github.com/user-attachments/assets/a7473dcf-097c-4a12-9bf0-db2eed8f50fc" />
+
 
 
 
