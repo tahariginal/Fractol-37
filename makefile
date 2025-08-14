@@ -1,10 +1,10 @@
 SRCS = src/events.c\
-	src/fcts_maths.c\
-	src/init.c\
-	src/main.c\
-	src/rendering.c\
-	src/helper_fct00.c\
-	src/helper_fct01.c
+	   src/fcts_maths.c\
+	   src/init.c\
+	   src/main.c\
+	   src/rendering.c\
+	   src/helper_fct00.c\
+	   src/helper_fct01.c\
 
 OBJS = $(SRCS:.c=.o)
 
